@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "Quiz"
+  "defaultProject": "Quiz",
+  "cli": {
+    "analytics": "d423dab5-9245-417c-8cab-2117633c4642"
+  }
 }
