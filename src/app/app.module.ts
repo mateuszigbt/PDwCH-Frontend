@@ -1,3 +1,4 @@
+import { TabMenuModule } from 'primeng/tabmenu';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
