@@ -1,0 +1,87 @@
+* {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+  height: 57vh;
+  text-align: center;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  width: 50%;
+  margin-bottom: 13%;
+  border-radius: 5%;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Odstęp między grupami */
+  background-color: rgba($color: #000000, $alpha: 0);
+}
+
+a {
+  text-decoration-line: none;
+  background-color: rgba($color: #000000, $alpha: 0);
+}
+
+a:hover {
+  text-decoration-line: underline;
+}
+
+.form-text, .form-button {
+  margin-top: 10px;
+  opacity: 1;
+  background-color: rgba($color: #000000, $alpha: 0);
+}
+
+
+label {
+  font-size: 20px;
+  margin-right: 10px;
+  background-color: rgba($color: #000000, $alpha: 0);
+}
+
+input {
+  height: 5vh;
+  font-size: 24px;
+  background-color: rgba($color: #000000, $alpha: 0);
+}
+
+#login {
+  width: 50%;
+}
+
+#password {
+  width: 50%;
+}
+
+#reapet-pass {
+  width: 50%;
+}
+
+#e-mail {
+  width: 50%;
+}
+
+.title {
+  font-size: 38px;
+  margin-bottom: 50px;
+  background-color: rgba($color: #000000, $alpha: 0);
+}
+
+p {
+  font-size: 16px;
+}

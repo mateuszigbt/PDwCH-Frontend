@@ -1,0 +1,43 @@
+* {
+  color: white;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.category {
+  width: 100%;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 20px;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; // Dodane, aby elementy się zawijały na nowe linie w obrębie .list
+  justify-content: space-between; // Dodane, aby elementy były równo rozłożone
+}
+
+.item {
+  background-color: rgba(0, 0, 0, 0);
+  text-align: center;
+  font-size: 27px;
+  width: calc(23% - 10px); // Zmieniono, aby uzyskać 4 kolumny z odstępem
+  margin: 2px;
+  padding: 10px;
+  transition: color 0.5s ease;
+  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+.item:hover {
+  color: rgb(197, 211, 1);
+}

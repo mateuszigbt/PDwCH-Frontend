@@ -1,5 +1,10 @@
 <div class="container">
   <app-top-bar></app-top-bar>
-  <app-main-mid-window></app-main-mid-window>
+  <app-main-mid-window *ngIf="getNameComponents === 'main'" @fadeIn></app-main-mid-window>
+  <app-category *ngIf="getNameComponents === 'category'" @fadeIn></app-category>
+  <app-random *ngIf="getNameComponents === 'random'" @fadeIn></app-random>
+  <app-top10 *ngIf="getNameComponents === 'top5'" @fadeIn></app-top10>
+  <app-login *ngIf="getNameComponents === 'login'" @fadeIn></app-login>
+  <app-register *ngIf="getNameComponents === 'register'" @fadeIn></app-register>
   <app-down-bar></app-down-bar>
 </div>
