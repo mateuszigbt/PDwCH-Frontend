@@ -1,10 +1,10 @@
 <div class="container">
   <div class="navbar">
-    <a class="left-top" href="http://"></a>
-    <a class="right-top" href="http://">Sign in</a>
-    <a class="right-top" href="http://">Register</a>
-    <a class="mid-top" href="http://">Category</a>
-    <a class="mid-top" href="http://">Random</a>
-    <a class="mid-top" href="http://">TOP 10</a>
+    <a class="left-top"(click)="sendNameOfComponent('main')"></a>
+    <a class="mid-top"(click)="sendNameOfComponent('category')">Category</a>
+    <a class="mid-top"(click)="sendNameOfComponent('random')">Random</a>
+    <a class="mid-top"(click)="sendNameOfComponent('top5')">TOP 5</a>
+    <a class="right-top"(click)="sendNameOfComponent('login')">Sign in</a>
+    <a class="right-top" (click)="sendNameOfComponent('register')">Register</a>
   </div>
 </div>

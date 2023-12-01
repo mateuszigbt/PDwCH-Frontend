@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-bar.component.scss'],
 })
 export class TopBarComponent {
+  constructor(private dataService: DataService) {}
 
-
+  sendNameOfComponent(value: string): void {
+    this.dataService.setSharedData(value);
+  }
 }
