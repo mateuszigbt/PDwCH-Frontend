@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="info">
+    <p class="title">Profile information</p>
+    <div class="description">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut quas quos
+        recusandae totam porro enim natus at quo aperiam asperiores id, expedita
+        ea corporis ipsa voluptatem nemo! Labore, quod fugit. Lorem ipsum dolor
+        sit amet consectetur adipisicing elit. Enim praesentium assumenda sed
+        dignissimos sequi cupiditate! Architecto esse, harum, corporis quas,
+        earum magnam delectus modi necessitatibus quis voluptatibus placeat
+        maxime obcaecati.Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Ut quas quos recusandae totam porro enim natus at quo aperiam
+        asperiores id, expedita ea corporis ipsa voluptatem nemo! Labore, quod
+        fugit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+        praesentium assumenda sed dignissimos sequi cupiditate! Architecto esse,
+        harum, corporis quas, earum magnam delectus modi necessitatibus quis
+        voluptatibus placeat maxime obcaecati. ea corporis ipsa voluptatem nemo!
+        Labore, quod fugit.
+      </p>
+    </div>
+    <p-button label="Edit your profile" severity="warning"></p-button>
+  </div>
+  <div class="card">
+    <p-table
+      [scrollable]="true"
+      scrollHeight="700px"
+      [value]="profile"
+      [tableStyle]="{ 'min-width': '50rem' }"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Points</th>
+          <th>Rating</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-profile>
+        <tr>
+          <td>{{ profile.id }}</td>
+          <td>{{ profile.name }}</td>
+          <td>{{ profile.category }}</td>
+          <td>{{ profile.points }}</td>
+          <td>
+            <p-rating
+              [ngModel]="profile.rating"
+              [readonly]="true"
+              [cancel]="false"
+            ></p-rating>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

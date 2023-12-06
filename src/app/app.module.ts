@@ -15,6 +15,17 @@ import { Top10Component } from './top10/top10.component';
 import { RegisterComponent } from './register/register.component';
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileComponent } from './profile/profile.component';
+import { TableModule } from 'primeng/table';
+import { RatingModule } from 'primeng/rating';
+import { ProfileAdminComponent } from './profile-admin/profile-admin.component';
+import { AdminAddComponent } from './admin-add/admin-add.component';
+import { AdminDeleteComponent } from './admin-delete/admin-delete.component';
+import { AdminUpdateComponent } from './admin-update/admin-update.component';
+import { GalleriaModule } from 'primeng/galleria';
+import { FileUploadModule } from 'primeng/fileupload';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ListboxModule } from 'primeng/listbox';
 
 @NgModule({
   declarations: [
@@ -26,14 +37,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CategoryComponent,
     RandomComponent,
     Top10Component,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent,
+    ProfileAdminComponent,
+    AdminAddComponent,
+    AdminDeleteComponent,
+    AdminUpdateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PaginatorModule,
     ButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TableModule,
+    RatingModule,
+    GalleriaModule,
+    FileUploadModule,
+    InputTextareaModule,
+    ListboxModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

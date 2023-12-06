@@ -2,25 +2,25 @@
   <div class="form-login">
     <p class="title">Register</p>
     <div class="form-group">
-      <label for="login">Login:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <input type="text" id="login" pInputText [(ngModel)]="value" />
+      <div class="form-group-label">
+        <label for="login"
+          >Login:</label
+        >
+        <label for="password"
+          >Password:</label
+        >
+        <label for="reapetpass">Reapet password:</label>
+        <label for="e-mail"
+          >E-Mail:</label
+        >
+      </div>
+      <div class="form-group-input">
+        <input type="text" id="login" pInputText [(ngModel)]="value" />
+        <input type="text" id="password" pInputText [(ngModel)]="value" />
+        <input type="text" id="reapet-pass" pInputText [(ngModel)]="value" />
+        <input type="text" id="e-mail" pInputText [(ngModel)]="value" />
+      </div>
     </div>
-
-    <div class="form-group">
-      <label for="password">Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <input type="text" id="password" pInputText [(ngModel)]="value" />
-    </div>
-
-    <div class="form-group">
-      <label for="reapetpass">Reapet password:</label>
-      <input type="text" id="reapet-pass" pInputText [(ngModel)]="value" />
-    </div>
-
-    <div class="form-group">
-      <label for="e-mail">E-Mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <input type="text" id="e-mail" pInputText [(ngModel)]="value" />
-    </div>
-
     <div class="form-button">
       <p-button label="Register" class="p-button-success"></p-button>
     </div>

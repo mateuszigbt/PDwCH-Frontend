@@ -20,16 +20,34 @@
   height: 57vh;
   text-align: center;
   background-color: rgba($color: #000000, $alpha: 0.5);
-  width: 50%;
-  margin-bottom: 13%;
+  width: 100%;
+  margin-bottom: 9%;
   border-radius: 5%;
 }
 
 .form-group {
   display: flex;
-  align-items: center;
-  margin-bottom: 10px; /* Odstęp między grupami */
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
   background-color: rgba($color: #000000, $alpha: 0);
+}
+
+.form-group-label,
+.form-group-input {
+  width: 48%;
+}
+
+.form-group-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.form-group-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 a {
@@ -41,43 +59,38 @@ a:hover {
   text-decoration-line: underline;
 }
 
-.form-text, .form-button {
+.form-text,
+.form-button {
   margin-top: 10px;
   opacity: 1;
   background-color: rgba($color: #000000, $alpha: 0);
 }
 
-
 label {
   font-size: 20px;
-  margin-right: 10px;
+  width: 100%;
   background-color: rgba($color: #000000, $alpha: 0);
+  margin-bottom: 25px;
+  margin-top: 5px;
 }
 
 input {
   height: 5vh;
-  font-size: 24px;
+  font-size: 20px;
   background-color: rgba($color: #000000, $alpha: 0);
 }
 
-#login {
-  width: 50%;
-}
-
-#password {
-  width: 50%;
-}
-
-#reapet-pass {
-  width: 50%;
-}
-
+#login,
+#password,
+#reapet-pass,
 #e-mail {
-  width: 50%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .title {
   font-size: 38px;
+  font-weight: bold;
   margin-bottom: 50px;
   background-color: rgba($color: #000000, $alpha: 0);
 }

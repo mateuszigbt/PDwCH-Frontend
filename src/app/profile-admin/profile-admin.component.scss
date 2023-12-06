@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  width: 100%;
+  margin-bottom: 8%;
+}
+
+.info {
+  font-size: 20px;
+  width: 25%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card {
+  margin-left: 5%;
+  width: 50%;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.description {
+  font-family: "Courier New", Courier, monospace;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 2%;
+  margin-bottom: 2px;
+}
+
+:host ::ng-deep {
+  .p-datatable .p-datatable-thead > tr > th {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .p-datatable .p-datatable-tbody > tr {
+    color: white;
+    background-color: rgba(37, 37, 37, 0.603);
+  }
+}
+
+.multiple-buttons > p-button{
+  margin-right: 20px;
+}
