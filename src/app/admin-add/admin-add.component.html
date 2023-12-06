@@ -1,47 +1,53 @@
 <div class="container">
-  <div *ngIf="buttonsIsOn" class="buttons">
+  <!--<div *ngIf="buttonsIsOn" class="buttons">
     <p-button label="Category" severity="help"></p-button>
     <p-button
       (click)="toggleCategory()"
       label="Quiz"
       severity="danger"
     ></p-button>
-  </div>
+  </div>-->
   <div *ngIf="quizIsOn" class="quiz">
-    <p-galleria
-      [value]="images"
-      [responsiveOptions]="responsiveOptions"
-      [containerStyle]="{ 'max-width': '440px' }"
-      [numVisible]="5"
-    >
-      <ng-template pTemplate="item" let-item>
-        <img [src]="item.itemImageSrc" style="width: 100%" />
-      </ng-template>
-      <ng-template pTemplate="thumbnail" let-item>
-        <div class="grid grid-nogutter justify-content-center">
-          <img [src]="item.thumbnailImageSrc" />
-        </div>
-      </ng-template>
-    </p-galleria>
-    <p-fileUpload
-      mode="basic"
-      chooseLabel="&nbsp;Choose"
-      name="demo[]"
-      url="https://www.primefaces.org/cdn/api/upload.php"
-      accept="image/*"
-      [maxFileSize]="1000000"
-    ></p-fileUpload>
-    <span class="p-float-label">
-      <textarea id="float-input" rows="5" cols="30" pInputTextarea></textarea>
-      <label for="float-input">Summary</label>
-    </span>
-    <p-listbox
-      [options]="cities"
-      [(ngModel)]="selectedCity"
-      optionLabel="name"
-      [filter]="true"
-      [style]="{ width: '15rem' }"
-      [listStyle]="{ 'max-height': '220px' }"
-    ></p-listbox>
+    <div class="left-site">
+      <p-listbox
+        [options]="cities"
+        [(ngModel)]="selectedCity"
+        optionLabel="name"
+        [filter]="true"
+        [style]="{ width: '15rem' }"
+        [listStyle]="{ 'max-height': '220px' }"
+      ></p-listbox>
+    </div>
+    <div class="mid-site">
+      <p-galleria
+        [value]="images"
+        [responsiveOptions]="responsiveOptions"
+        [containerStyle]="{ 'max-width': '440px' }"
+        [numVisible]="5"
+      >
+        <ng-template pTemplate="item" let-item>
+          <img [src]="item.itemImageSrc" style="width: 100%" />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+          <div class="grid grid-nogutter justify-content-center">
+            <img [src]="item.thumbnailImageSrc" />
+          </div>
+        </ng-template>
+      </p-galleria>
+      <p-fileUpload
+        mode="basic"
+        chooseLabel="&nbsp;Choose"
+        name="demo[]"
+        url="https://www.primefaces.org/cdn/api/upload.php"
+        accept="image/*"
+        [maxFileSize]="1000000"
+      ></p-fileUpload>
+    </div>
+    <div class="right-site">
+      <span class="p-float-label">
+        <textarea id="float-input" rows="5" cols="30" pInputTextarea></textarea>
+        <label for="float-input">Summary</label>
+      </span>
+    </div>
   </div>
 </div>

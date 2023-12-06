@@ -48,7 +48,7 @@ export class AdminAddComponent {
   ];
 
   selectedCity: any;
-  quizIsOn: boolean = false;
+  quizIsOn: boolean = true;
   buttonsIsOn: boolean = true;
   toggleCategory(): void {
     this.quizIsOn = true;
