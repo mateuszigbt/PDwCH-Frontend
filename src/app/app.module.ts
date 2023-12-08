@@ -26,6 +26,7 @@ import { GalleriaModule } from 'primeng/galleria';
 import { FileUploadModule } from 'primeng/fileupload';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ListboxModule } from 'primeng/listbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ListboxModule } from 'primeng/listbox';
     GalleriaModule,
     FileUploadModule,
     InputTextareaModule,
-    ListboxModule
+    ListboxModule,
+    RadioButtonModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

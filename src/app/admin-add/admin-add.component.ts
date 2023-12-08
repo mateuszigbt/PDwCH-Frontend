@@ -45,8 +45,11 @@ export class AdminAddComponent {
   cities: any[] = [
     { name: 'test', code: 't' },
     { name: 'egeg', code: 'g' },
+    { name: 'test', code: 't' },
+    { name: 'egeg', code: 'g' },
   ];
 
+  value: string = '';
   selectedCity: any;
   quizIsOn: boolean = true;
   buttonsIsOn: boolean = true;

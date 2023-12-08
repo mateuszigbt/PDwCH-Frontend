@@ -7,7 +7,7 @@
       severity="danger"
     ></p-button>
   </div>-->
-  <div *ngIf="quizIsOn" class="quiz">
+  <div *ngIf="quizIsOn" class="quiz-up">
     <div class="left-site">
       <p-listbox
         [options]="cities"
@@ -15,7 +15,7 @@
         optionLabel="name"
         [filter]="true"
         [style]="{ width: '15rem' }"
-        [listStyle]="{ 'max-height': '220px' }"
+        [listStyle]="{ 'max-height': '50vh' }"
       ></p-listbox>
     </div>
     <div class="mid-site">
@@ -34,6 +34,7 @@
           </div>
         </ng-template>
       </p-galleria>
+      <div class="space"></div>
       <p-fileUpload
         mode="basic"
         chooseLabel="&nbsp;Choose"
@@ -42,12 +43,117 @@
         accept="image/*"
         [maxFileSize]="1000000"
       ></p-fileUpload>
+      <div class="space"></div>
     </div>
     <div class="right-site">
       <span class="p-float-label">
         <textarea id="float-input" rows="5" cols="30" pInputTextarea></textarea>
-        <label for="float-input">Summary</label>
+        <label for="float-input">Descryption</label>
       </span>
+      <input
+        id="input-title"
+        placeholder="Title"
+        type="text"
+        pInputText
+        [(ngModel)]="value"
+      />
+    </div>
+  </div>
+  <div class="text-info">
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, dicta
+      nobis. Deleniti soluta repellat illo nihil. Laboriosam corporis sunt est
+      ea aliquid nulla nesciunt nostrum veniam fugiat, mollitia tempore?
+      Voluptas? Deleniti soluta repellat illo nihil. Laboriosam corporis sunt
+      est ea aliquid nulla nesciunt nostrum veniam fugiat, mollitia tempore?
+      Voluptas?
+    </p>
+  </div>
+  <div class="quiz-down">
+    <div class="list">
+      <div class="item">
+        <img src="../../assets/images/example-quiz.jpg" alt="" />
+        <div class="textarea-box">
+          <p>Question</p>
+          <textarea
+            class="textarea"
+            rows="5"
+            cols="30"
+            pInputTextarea
+            [(ngModel)]="value"
+          ></textarea>
+        </div>
+        <div class="textarea-box">
+          <p>Ask no.: 1</p>
+          <textarea
+            class="textarea"
+            rows="5"
+            cols="30"
+            pInputTextarea
+            [(ngModel)]="value"
+          ></textarea>
+        </div>
+        <div class="textarea-box">
+          <p>Ask no.: 2</p>
+          <textarea
+            class="textarea"
+            rows="5"
+            cols="30"
+            pInputTextarea
+            [(ngModel)]="value"
+          ></textarea>
+        </div>
+        <div class="textarea-box">
+          <p>Ask no.: 3</p>
+          <textarea
+            class="textarea"
+            rows="5"
+            cols="30"
+            pInputTextarea
+            [(ngModel)]="value"
+          ></textarea>
+        </div>
+        <div class="textarea-box">
+          <p>Ask no.: 4</p>
+          <textarea
+            class="textarea"
+            rows="5"
+            cols="30"
+            pInputTextarea
+            [(ngModel)]="value"
+          ></textarea>
+        </div>
+        <div class="flex flex-column gap-3">
+          <p
+            style="
+              color: white;
+              font-size: white;
+              font-size: 24px;
+              margin-top: 20px;
+              font-family: 'Courier New', Courier, monospace;
+            "
+          >
+            Choose correct:
+          </p>
+          <div *ngFor="let city of cities" class="field-checkbox">
+            <p-radioButton
+              [inputId]="city.name"
+              name="cities"
+              [value]="city"
+              [(ngModel)]="selectedCity"
+            ></p-radioButton>
+            <label
+              style="color: white; margin-left: 10px"
+              [for]="city.name"
+              class="ml-2"
+              >{{ city.name }}</label
+            >
+          </div>
+        </div>
+        <hr style="width: 100%; margin-top: 20px;">
+      </div>
+      <div class="space"></div>
+      <p-button label="Ready" icon="pi pi-check"></p-button>
     </div>
   </div>
 </div>
