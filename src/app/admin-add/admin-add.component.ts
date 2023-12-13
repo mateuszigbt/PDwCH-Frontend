@@ -43,10 +43,10 @@ export class AdminAddComponent {
   ];
 
   cities: any[] = [
-    { name: 'test', code: 't' },
-    { name: 'egeg', code: 'g' },
-    { name: 'test', code: 't' },
-    { name: 'egeg', code: 'g' },
+    { name: 'Answer NO. 1', code: 't' },
+    { name: 'Answer NO. 2', code: 'g' },
+    { name: 'Answer NO. 3', code: 't' },
+    { name: 'Answer NO. 4', code: 'g' }
   ];
 
   value: string = '';
