@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+  display: flex;
+}
+
+.box-delete {
+  margin-top: 2%;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 5%;
+}
+
+.text-information {
+  color: white;
+  max-width: 25%;
+  font-size: 24px;
+  margin-right: 5%;
+}
+
+.mid-site {
+  display: flex;
+  flex-wrap: wrap;
+}

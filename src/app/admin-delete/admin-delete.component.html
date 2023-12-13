@@ -1,1 +1,40 @@
-<p>admin-delete works!</p>
+<div class="container">
+  <div class="left-site">
+    <p-listbox
+      [options]="cities"
+      [(ngModel)]="selectedCity"
+      optionLabel="name"
+      [filter]="true"
+      [style]="{ width: '15rem' }"
+      [listStyle]="{ 'max-height': '50vh' }"
+    ></p-listbox>
+  </div>
+  <div class="box-delete">
+    <div class="mid-site">
+      <div class="text-information">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi nemo
+        excepturi libero? Officia eius, atque numquam facere, aspernatur
+        consequatur architecto culpa illo nobis aperiam perspiciatis perferendis
+        dolore voluptate iure nulla. Lorem, ipsum dolor sit amet consectetur
+        adipisicing elit. Modi nemo excepturi libero? Officia eius, atque
+        numquam facere, aspernatur consequatur architecto culpa illo nobis
+        aperiam perspiciatis perferendis dolore voluptate iure nulla.
+      </div>
+      <p-galleria
+        [value]="images"
+        [responsiveOptions]="responsiveOptions"
+        [containerStyle]="{ 'max-width': '540px' }"
+        [numVisible]="5"
+      >
+        <ng-template pTemplate="item" let-item>
+          <img [src]="item.itemImageSrc" style="width: 100%" />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+          <div class="grid grid-nogutter justify-content-center">
+            <img [src]="item.thumbnailImageSrc" />
+          </div>
+        </ng-template>
+      </p-galleria>
+    </div>
+  </div>
+</div>
