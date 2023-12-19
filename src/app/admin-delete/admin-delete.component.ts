@@ -48,6 +48,10 @@ export class AdminDeleteComponent {
     { name: 'Answer NO. 4', code: 'g' },
     { name: 'Answer NO. 5', code: 't' },
     { name: 'Answer NO. 6', code: 't' },
+    { name: 'Answer NO. 5', code: 't' },
+    { name: 'Answer NO. 6', code: 't' },
+    { name: 'Answer NO. 5', code: 't' },
+    { name: 'Answer NO. 6', code: 't' },
   ];
 
   value: string = '';

@@ -1,25 +1,48 @@
 .container {
   width: 100%;
-  display: flex;
 }
 
 .box-delete {
-  margin-top: 2%;
   display: flex;
   width: 100%;
-  align-items: center;
-  flex-direction: column;
-  margin-left: 5%;
+  flex-wrap: wrap;
 }
 
-.text-information {
-  color: white;
-  max-width: 25%;
-  font-size: 24px;
-  margin-right: 5%;
+.left-site {
+  flex: 1;
 }
 
 .mid-site {
+  align-items: center;
+  justify-content: center;
+  flex: 3;
+  width: 100%;
+  margin-top: 3%;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  margin-right: 1%;
+}
+
+.text-information {
+  margin-right: 3%;
+  font-size: 24px;
+  width: 20%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }

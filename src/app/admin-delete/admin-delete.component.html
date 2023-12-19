@@ -1,24 +1,25 @@
 <div class="container">
-  <div class="left-site">
-    <p-listbox
-      [options]="cities"
-      [(ngModel)]="selectedCity"
-      optionLabel="name"
-      [filter]="true"
-      [style]="{ width: '15rem' }"
-      [listStyle]="{ 'max-height': '50vh' }"
-    ></p-listbox>
-  </div>
   <div class="box-delete">
+    <div class="left-site">
+      <!-- Your existing left-site content here -->
+      <p-listbox
+        [options]="cities"
+        [(ngModel)]="selectedCity"
+        optionLabel="name"
+        [filter]="true"
+        [style]="{ width: '15rem' }"
+        [listStyle]="{ 'max-height': '50vh' }"
+      ></p-listbox>
+    </div>
     <div class="mid-site">
       <div class="text-information">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi nemo
-        excepturi libero? Officia eius, atque numquam facere, aspernatur
-        consequatur architecto culpa illo nobis aperiam perspiciatis perferendis
-        dolore voluptate iure nulla. Lorem, ipsum dolor sit amet consectetur
-        adipisicing elit. Modi nemo excepturi libero? Officia eius, atque
-        numquam facere, aspernatur consequatur architecto culpa illo nobis
-        aperiam perspiciatis perferendis dolore voluptate iure nulla.
+        <p> saddsa </p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
+          suscipit dolor fugit minima esse perferendis quia nulla ratione
+          consequatur, iusto, atque dicta omnis fuga veritatis mollitia nemo
+          harum soluta. Excepturi.
+        </p>
       </div>
       <p-galleria
         [value]="images"
@@ -36,5 +37,8 @@
         </ng-template>
       </p-galleria>
     </div>
+  </div>
+  <div class="button">
+    <p-button label="Delete" severity="danger"></p-button>
   </div>
 </div>
