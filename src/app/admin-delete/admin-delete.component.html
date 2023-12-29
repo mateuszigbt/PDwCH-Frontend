@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="box-delete">
+    <div class="left-site">
+      <p-listbox
+        [options]="cities"
+        [(ngModel)]="selectedCity"
+        optionLabel="name"
+        [filter]="true"
+        [style]="{ width: '15rem' }"
+        [listStyle]="{ 'max-height': '50vh' }"
+      ></p-listbox>
+    </div>
+    <div class="mid-site" *ngIf="selectedCity != ''">
+      <div class="text-information">
+        <p>saddsa</p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
+          suscipit dolor fugit minima esse perferendis quia nulla ratione
+          consequatur, iusto, atque dicta omnis fuga veritatis mollitia nemo
+          harum soluta. Excepturi.
+        </p>
+      </div>
+      <p-galleria
+        [value]="images"
+        [responsiveOptions]="responsiveOptions"
+        [containerStyle]="{ 'max-width': '540px' }"
+        [numVisible]="5"
+      >
+        <ng-template pTemplate="item" let-item>
+          <img [src]="item.itemImageSrc" style="width: 100%" />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+          <div class="grid grid-nogutter justify-content-center">
+            <img [src]="item.thumbnailImageSrc" />
+          </div>
+        </ng-template>
+      </p-galleria>
+    </div>
+  </div>
+  <div class="button" *ngIf="selectedCity != ''">
+    <p-button label="Delete" severity="danger"></p-button>
+  </div>
+</div>

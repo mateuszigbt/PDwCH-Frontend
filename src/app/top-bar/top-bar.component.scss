@@ -1,63 +1,70 @@
 * {
   color: white;
+  box-sizing: border-box;
 }
 
 .navbar {
   width: 100%;
   min-height: 80px;
   background-color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px; /* Dodane wewnętrzne odstępy dla lepszego skalowania */
 }
 
+.left-top {
+  background-image: url(../../assets/images/logo.png);
+  width: 100px; /* Zmniejszona szerokość dla lepszego skalowania */
+  height: 100px; /* Zmniejszona wysokość dla lepszego skalowania */
+  background-size: contain;
+  background-position: center;
+  margin-top: -13px;
+  margin-left: 10px; /* Zmniejszony margines dla lepszego skalowania */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mid-top,
 .right-top {
-  font-size: 23px;
-  font-family: 'Courier New', Courier, monospace;
+  font-size: 23px; /* Zmniejszono rozmiar czcionki dla lepszego skalowania */
   font-weight: bold;
-  margin-left: 30px;
-  margin-top: 30px;
+  font-family: 'Courier New', Courier, monospace;
   text-decoration: none;
   transition: color 0.5s ease;
   cursor: pointer;
+}
+
+.space {
+  margin-left: 15%;
+}
+
+.right-top {
+  margin-left: 20px;
+}
+
+.mid-top:hover {
+  color: rgb(27, 209, 27);
 }
 
 .right-top:hover {
   color: rgb(197, 46, 211);
 }
 
-.right-top:not(:first-child) {
-  float: right;
-  margin-right: 50px;
-}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Przełącz na układ kolumnowy dla mniejszych ekranów */
+    align-items: flex-start; /* Wyrównaj elementy do lewej krawędzi */
+  }
 
-.right-top:not(:last-child) {
-  margin-right: 50px;
-}
+  .right-top:not(:first-child) {
+    float: none;
+    margin-right: 0;
+    margin-top: 10px; /* Dodatkowy odstęp między elementami na mniejszych ekranach */
+  }
 
-.left-top {
-  float: left;
-  margin-top: -13px;
-  margin-left: 50px;
-  background-image: url(../../assets/images/logo.png);
-  width: 100px;
-  height: 100px;
-  background-size: cover;
-  background-position: center;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.mid-top {
-  font-size: 23px;
-  font-weight: bold;
-  font-family: 'Courier New', Courier, monospace;
-  margin-left: 10%;
-  margin-right: -3.5%;
-  margin-top: 30px;
-  display: inline-block;
-  text-decoration: none;
-  transition: color 0.5s ease;
-  cursor: pointer;
-}
-
-.mid-top:hover {
-  color: rgb(27, 209, 27);
+  .right-top:not(:last-child) {
+    margin-right: 0;
+    margin-top: 10px; /* Dodatkowy odstęp między elementami na mniejszych ekranach */
+  }
 }

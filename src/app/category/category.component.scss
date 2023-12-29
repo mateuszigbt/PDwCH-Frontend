@@ -21,8 +21,8 @@
   padding: 0;
   margin: 0;
   display: flex;
-  flex-wrap: wrap; // Dodane, aby elementy się zawijały na nowe linie w obrębie .list
-  justify-content: space-between; // Dodane, aby elementy były równo rozłożone
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .item {

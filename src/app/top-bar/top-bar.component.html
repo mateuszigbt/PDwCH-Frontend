@@ -4,7 +4,11 @@
     <a class="mid-top"(click)="sendNameOfComponent('category')">Category</a>
     <a class="mid-top"(click)="sendNameOfComponent('random')">Random</a>
     <a class="mid-top"(click)="sendNameOfComponent('top5')">TOP 5</a>
-    <a class="right-top"(click)="sendNameOfComponent('login')">Sign in</a>
-    <a class="right-top" (click)="sendNameOfComponent('register')">Register</a>
+    <a class="space"></a>
+    <a class="right-top" *ngIf="!isSignIn" (click)="sendNameOfComponent('login')">Sign in</a>
+    <a class="right-top" *ngIf="!isSignIn" (click)="sendNameOfComponent('register')">Register</a>
+    <a class="right-top" *ngIf="isSignIn" (click)="sendNameOfComponent('profile')">Profile</a>
+    <a class="right-top" *ngIf="isSignIn" (click)="sendNameOfComponent('main')" (click)="signOut()">Sign out</a>
   </div>
+  <p-toast></p-toast>
 </div>

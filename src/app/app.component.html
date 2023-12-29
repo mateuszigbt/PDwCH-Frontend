@@ -6,5 +6,10 @@
   <app-top10 *ngIf="getNameComponents === 'top5'" @fadeIn></app-top10>
   <app-login *ngIf="getNameComponents === 'login'" @fadeIn></app-login>
   <app-register *ngIf="getNameComponents === 'register'" @fadeIn></app-register>
-  <app-down-bar></app-down-bar>
+  <app-profile *ngIf="getNameComponents === 'profile'" @fadeIn></app-profile>
+  <app-profile-admin *ngIf="getNameComponents === 'profile-admin'" @fadeIn></app-profile-admin>
+  <app-admin-add *ngIf="getNameComponents === 'admin-add'" @fadeIn></app-admin-add>
+  <app-admin-delete *ngIf="getNameComponents === 'admin-delete'" @fadeIn></app-admin-delete>
+  <app-admin-update *ngIf="getNameComponents === 'admin-update'" @fadeIn></app-admin-update>
+  <app-down-bar @fadeIn></app-down-bar>
 </div>

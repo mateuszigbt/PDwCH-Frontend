@@ -1,22 +1,38 @@
 <div class="container">
   <div class="form-login">
-    <p class="title">Sign in</p>
-    <div class="form-group">
-      <label for="login">Login:&nbsp;&nbsp;&nbsp;</label>
-      <input type="text" id="login" pInputText [(ngModel)]="value" />
-    </div>
+    <form (ngSubmit)="loginUser()" #registrationForm="ngForm">
+      <p class="title">Sign in</p>
 
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="text" id="password" pInputText [(ngModel)]="value" />
-    </div>
+      <div class="form-group">
+        <label for="login">Login:&nbsp;&nbsp;&nbsp;</label>
+        <input
+          type="text"
+          id="login"
+          name="login"
+          pInputText
+          [(ngModel)]="user.login"
+        />
+      </div>
 
-    <div class="form-text">
-      <a href="">Forgot password</a>
-    </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          pInputText
+          [(ngModel)]="user.password"
+        />
+      </div>
 
-    <div class="form-button">
-      <p-button label="Log in"></p-button>
-    </div>
+      <div class="form-text">
+        <a href="">Forgot password</a>
+      </div>
+
+      <div class="form-button">
+        <p-button type="submit" label="Log in"></p-button>
+        <p-toast></p-toast>
+      </div>
+    </form>
   </div>
 </div>

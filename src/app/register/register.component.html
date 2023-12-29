@@ -1,28 +1,31 @@
 <div class="container">
   <div class="form-login">
+    <form (ngSubmit)="registerUser()" #registrationForm="ngForm">
     <p class="title">Register</p>
     <div class="form-group">
-      <label for="login">Login:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <input type="text" id="login" pInputText [(ngModel)]="value" />
+      <div class="form-group-label">
+        <label for="login"
+          >Login:</label
+        >
+        <label for="password"
+          >Password:</label
+        >
+        <label for="reapetpass">Reapet password:</label>
+        <label for="e-mail"
+          >E-Mail:</label
+        >
+      </div>
+      <div class="form-group-input">
+        <input type="text" id="login" name="login" pInputText [(ngModel)]="user.login" />
+        <input type="password" id="password" name="password" pInputText [(ngModel)]="user.password" />
+        <input type="password" id="reapet-pass" name="reapetPass" pInputText [(ngModel)]="reapetPass" />
+        <input type="text" id="e-mail" name="eMail" pInputText [(ngModel)]="user.email" />
+      </div>
     </div>
-
-    <div class="form-group">
-      <label for="password">Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <input type="text" id="password" pInputText [(ngModel)]="value" />
-    </div>
-
-    <div class="form-group">
-      <label for="reapetpass">Reapet password:</label>
-      <input type="text" id="reapet-pass" pInputText [(ngModel)]="value" />
-    </div>
-
-    <div class="form-group">
-      <label for="e-mail">E-Mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <input type="text" id="e-mail" pInputText [(ngModel)]="value" />
-    </div>
-
     <div class="form-button">
-      <p-button label="Register" class="p-button-success"></p-button>
+      <p-toast></p-toast>
+      <p-button type="submit" label="Register" class="p-button-success"></p-button>
     </div>
+  </form>
   </div>
 </div>
