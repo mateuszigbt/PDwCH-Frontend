@@ -27,6 +27,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ListboxModule } from 'primeng/listbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     FileUploadModule,
     InputTextareaModule,
     ListboxModule,
-    RadioButtonModule
+    RadioButtonModule,
+    ToastModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
