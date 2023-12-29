@@ -1,7 +1,6 @@
 <div class="container">
   <div class="box-delete">
     <div class="left-site">
-      <!-- Your existing left-site content here -->
       <p-listbox
         [options]="cities"
         [(ngModel)]="selectedCity"
@@ -11,9 +10,9 @@
         [listStyle]="{ 'max-height': '50vh' }"
       ></p-listbox>
     </div>
-    <div class="mid-site">
+    <div class="mid-site" *ngIf="selectedCity != ''">
       <div class="text-information">
-        <p> saddsa </p>
+        <p>saddsa</p>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
           suscipit dolor fugit minima esse perferendis quia nulla ratione
@@ -38,7 +37,7 @@
       </p-galleria>
     </div>
   </div>
-  <div class="button">
+  <div class="button" *ngIf="selectedCity != ''">
     <p-button label="Delete" severity="danger"></p-button>
   </div>
 </div>
