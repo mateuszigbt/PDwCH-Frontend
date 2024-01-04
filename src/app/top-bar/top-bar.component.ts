@@ -16,14 +16,14 @@ export class TopBarComponent implements OnInit{
   private subscription!: Subscription;
 
   isSignIn: boolean = false;
-
-  sendNameOfComponent(value: string): void {
-    this.dataService.setSharedData(value);
-  }
+  isAdmin: boolean = false;
 
   ngOnInit(): void {
     this.subscription = this.dataService.isSignIn$.subscribe(response => {
       this.isSignIn = response;
+      if (this.isSignIn) {
+        this.isAdmin = this.dataService.isAdmin();
+      }
     });
   }
 
@@ -35,5 +35,9 @@ export class TopBarComponent implements OnInit{
       summary: 'Warning',
       detail: 'You have been sign out',
     });
+  }
+
+  sendNameOfComponent(value: string): void {
+    this.dataService.setSharedData(value);
   }
 }

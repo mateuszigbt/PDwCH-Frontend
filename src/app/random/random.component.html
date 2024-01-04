@@ -1,8 +1,24 @@
-<div class="block">
-  <img src="../../assets/images/example-quiz.jpg" alt="" />
-  <p class="text">
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores,
-    ratione quisquam! Possimus alias accusamus, quasi quae iste est, molestiae
-    delectus ab officiis ex maxime et nihil! Eaque delectus quia laboriosam.
-  </p>
+<div class="container-quiz">
+  <div class="block" (click)="choosenQuiz(oneQuiz)">
+    <img
+      class="quiz-image"
+      [src]="getSafeImageUrl(oneQuiz.images[0].choosenImage)"
+      alt=""
+      height="500px"
+      width="600px"
+    />
+    <div class="details">
+      <p-rating
+        [(ngModel)]="oneQuiz.rating"
+        [readonly]="true"
+        [cancel]="false"
+      ></p-rating>
+      <p class="title">
+        {{ oneQuiz.title }}
+      </p>
+      <p class="text">
+        {{ oneQuiz.description }}
+      </p>
+    </div>
+  </div>
 </div>

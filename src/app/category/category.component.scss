@@ -23,21 +23,23 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.793);
 }
 
 .item {
   background-color: rgba(0, 0, 0, 0);
   text-align: center;
   font-size: 27px;
-  width: calc(23% - 10px); // Zmieniono, aby uzyskać 4 kolumny z odstępem
+  width: calc(23% - 10px);
   margin: 2px;
   padding: 10px;
-  transition: color 0.5s ease;
+  transition: color 0.5s ease !important;
   cursor: pointer;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
+  color: white !important;
 }
 
 .item:hover {
-  color: rgb(197, 211, 1);
+  color: rgb(197, 211, 1) !important;
 }

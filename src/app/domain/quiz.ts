@@ -5,13 +5,13 @@ import { Answer } from "./answer";
 import { Category } from "./category";
 
 export interface Quiz {
-  id: number,
+  quizId?: number,
   title: string,
   description: string,
   rating: number,
   category: Category,
   answers: Answer[],
-  correctAnswer: CorrectAnswer[],
-  question: Question[],
+  correctAnswers: CorrectAnswer[],
+  questions: Question[],
   images: Images[]
 }

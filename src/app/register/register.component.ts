@@ -34,8 +34,7 @@ export class RegisterComponent implements OnInit {
   registerUser() {
     this.dataService.getAllUsers().subscribe((response) => {
       this.listUsers = response;
-
-    console.log(this.listUsers)
+      
     this.listUsers.forEach((element) => {
       if (
         element.email === this.user.email ||

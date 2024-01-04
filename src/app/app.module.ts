@@ -28,6 +28,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ListboxModule } from 'primeng/listbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ToastModule } from 'primeng/toast';
+import { ResolveQuizComponent } from './resolve-quiz/resolve-quiz.component';
+import { ImageModule } from 'primeng/image';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { ToastModule } from 'primeng/toast';
     ProfileAdminComponent,
     AdminAddComponent,
     AdminDeleteComponent,
-    AdminUpdateComponent
+    AdminUpdateComponent,
+    ResolveQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ import { ToastModule } from 'primeng/toast';
     InputTextareaModule,
     ListboxModule,
     RadioButtonModule,
-    ToastModule
+    ToastModule,
+    ImageModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

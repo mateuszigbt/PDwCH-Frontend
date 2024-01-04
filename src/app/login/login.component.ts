@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   user: User = {
+    id: 0,
     email: '',
     isAdmin: false,
     login: '',
@@ -23,6 +24,9 @@ export class LoginComponent implements OnInit {
   };
   userList!: User[];
   isFound: boolean = false;
+  isAdmin: boolean = false;
+  idUser: any;
+
   ngOnInit(): void {
     this.dataService.getAllUsers().subscribe((response) => {
       this.userList = response;
@@ -36,6 +40,8 @@ export class LoginComponent implements OnInit {
         this.user.password === element.password
       ) {
         this.isFound = true;
+        this.isAdmin = element.isAdmin;
+        this.idUser = element.id;
         return;
       }
     });
@@ -49,8 +55,11 @@ export class LoginComponent implements OnInit {
       setTimeout(() => {
       this.dataService.setSharedData('main');
       this.dataService.setSignIn(true);
+      this.dataService.setSharedIdUser(this.idUser);
       }, 3000);
-
+      if (this.isAdmin === true) {
+        this.dataService.setAdmin(true);
+      }
       this.isFound = false;
     } else {
       this.messageService.add({

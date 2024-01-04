@@ -20,42 +20,41 @@
       </p>
     </div>
     <div class="multiple-buttons">
-      <p-button label="Create"></p-button>
-      <p-button label="Edit" severity="warning"></p-button>
-      <p-button label="Delete" severity="danger"></p-button>
+      <p-button type="submit" (click)="toCreate()" label="Create"></p-button>
+      <p-button type="submit" (click)="toEdit()" label="Edit" severity="warning"></p-button>
+      <p-button type="submit" (click)="toDelete()" label="Delete" severity="danger"></p-button>
     </div>
   </div>
-  <div class="card">
+  <div class="card" *ngIf="isFull">
     <p-table
       [scrollable]="true"
       scrollHeight="700px"
-      [value]="profile"
+      [value]="userInfo"
       [tableStyle]="{ 'min-width': '50rem' }"
     >
       <ng-template pTemplate="header">
         <tr>
-          <th>Id</th>
-          <th>Name</th>
+          <th>Title</th>
           <th>Category</th>
+          <th>Level</th>
           <th>Points</th>
-          <th>Rating</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-profile>
-        <tr>
-          <td>{{ profile.id }}</td>
-          <td>{{ profile.name }}</td>
-          <td>{{ profile.category }}</td>
-          <td>{{ profile.points }}</td>
+        <tr *ngFor="let quiz of user.quizProfile; let i = index">
+          <td>{{ quiz.title }}</td>
+          <td>{{ quiz.category }}</td>
           <td>
             <p-rating
-              [ngModel]="profile.rating"
+              [ngModel]="quiz.rating"
               [readonly]="true"
               [cancel]="false"
             ></p-rating>
           </td>
+          <td>{{getPoints[i]}}</td>
         </tr>
       </ng-template>
+      <p-toast></p-toast>
     </p-table>
   </div>
 </div>

@@ -1,0 +1,91 @@
+.container {
+  width: 100%;
+  margin-top: 2%;
+}
+
+.quiz-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 10%;
+}
+
+.quiz-question {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.638);
+  border-radius: 4%;
+  margin-bottom: 3%;
+}
+
+.text {
+  margin-top: 2%;
+  font-size: 20px;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  font-weight: bold;
+  width: 80%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.text-answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.71);
+  margin-left: 15%;
+  margin-right: 15%;
+  border-radius: 2%;
+  width: 100%;
+}
+
+.field-checkbox {
+  color: white;
+  font-size: 23px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+.quiz-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.end-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.next-button {
+  margin-left: 200px;
+}
+
+:host ::ng-deep {
+  .p-image-preview-indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0vh;
+    height: 0vh;
+    outline: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .flex .flex-column .gap-3 {
+    display: flex;
+    flex-direction: row;
+  }
+}

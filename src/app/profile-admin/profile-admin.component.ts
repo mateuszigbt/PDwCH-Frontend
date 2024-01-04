@@ -1,22 +1,64 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Profile } from '../domain/profile';
+import { Subscription } from 'rxjs';
+import { DataService } from '../data.service';
+import { User } from '../domain/user';
 
 @Component({
   selector: 'app-profile-admin',
   templateUrl: './profile-admin.component.html',
-  styleUrls: ['./profile-admin.component.scss']
+  styleUrls: ['./profile-admin.component.scss'],
 })
-export class ProfileAdminComponent {
-    profile: Profile[] = [
-      { id: 0, name: 'first', category: 'nocategory', points: 10, rating: 3 },
-      { id: 1, name: 'first', category: 'nocategory', points: 5, rating: 3 },
-      { id: 2, name: 'first', category: 'nocategory', points: 3, rating: 3 },
-      { id: 3, name: 'first', category: 'nocategory', points: 10, rating: 3 },
-      { id: 4, name: 'first', category: 'nocategory', points: 5, rating: 3 },
-      { id: 5, name: 'first', category: 'nocategory', points: 3, rating: 3 },
-      { id: 6, name: 'first', category: 'nocategory', points: 10, rating: 3 },
-      { id: 7, name: 'first', category: 'nocategory', points: 5, rating: 3 },
-      { id: 8, name: 'first', category: 'nocategory', points: 3, rating: 3 },
-      { id: 8, name: 'first', category: 'nocategory', points: 3, rating: 3 },
-    ];
+export class ProfileAdminComponent implements OnInit {
+  idUser!: number;
+  userInfo: User[] = [];
+  isFull: boolean = false;
+  user!: User;
+  getPoints: any[] = [];
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.dataService.sharedIdUser$.subscribe((id) => {
+      this.idUser = id;
+    });
+
+    if (this.idUser != null) {
+      this.dataService.getByIdUser(this.idUser).subscribe(response => {
+        this.user = response;
+        this.user.quizProfile!.forEach(element => {
+          if (Array.isArray(element.points) && element.points.length > 0) {
+            this.getPoints.push(element.points[0].score);
+          }
+        });
+        this.userInfo = [response];
+        this.user.quizProfile!.forEach(element => {
+          const length = element.title?.length;
+          if (length! > 0) {
+            this.isFull = true;
+            return;
+          }
+        });
+      });
+    }
+  }
+
+  calculateTotalPoints(points: any[], quizIndex: number): number {
+    if (points && points[quizIndex]) {
+      return points[quizIndex].score;
+    }
+    return 0;
+  }
+
+  toCreate(): void {
+    this.dataService.setSharedData('admin-add');
+  }
+
+  toEdit(): void {
+    this.dataService.setSharedData('admin-edit');
+  }
+
+  toDelete(): void {
+    this.dataService.setSharedData('admin-delete');
+  }
+
 }

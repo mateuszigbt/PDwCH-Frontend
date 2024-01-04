@@ -21,7 +21,7 @@ const fadeIn = trigger('fadeIn', [enterTransition]);
 export class AppComponent implements OnInit {
   title = 'Quiz';
 
-  getNameComponents: string = 'login';
+  getNameComponents: string = 'main';
   private subscription!: Subscription;
 
   constructor(private dataService: DataService) {}

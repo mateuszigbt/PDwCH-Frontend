@@ -1,4 +1,3 @@
-import { Points } from './points';
 import { QuizProfile } from './quizProfile';
 export interface User{
   id?: number,
@@ -6,6 +5,5 @@ export interface User{
   password: string,
   email: string,
   isAdmin: boolean,
-  quizProfile?: QuizProfile[],
-  points?: Points[]
+  quizProfile?: QuizProfile[]
 }

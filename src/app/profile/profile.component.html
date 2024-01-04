@@ -21,35 +21,33 @@
     </div>
     <p-button label="Edit your profile" severity="warning"></p-button>
   </div>
-  <div class="card">
+  <div class="card" *ngIf="isFull">
     <p-table
       [scrollable]="true"
       scrollHeight="700px"
-      [value]="profile"
+      [value]="userInfo"
       [tableStyle]="{ 'min-width': '50rem' }"
     >
       <ng-template pTemplate="header">
         <tr>
-          <th>Id</th>
-          <th>Name</th>
+          <th>Title</th>
           <th>Category</th>
+          <th>Level</th>
           <th>Points</th>
-          <th>Rating</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-profile>
-        <tr>
-          <td>{{ profile.id }}</td>
-          <td>{{ profile.name }}</td>
-          <td>{{ profile.category }}</td>
-          <td>{{ profile.points }}</td>
+        <tr *ngFor="let quiz of user.quizProfile; let i = index">
+          <td>{{ quiz.title }}</td>
+          <td>{{ quiz.category }}</td>
           <td>
             <p-rating
-              [ngModel]="profile.rating"
+              [ngModel]="quiz.rating"
               [readonly]="true"
               [cancel]="false"
             ></p-rating>
           </td>
+          <td>{{getPoints[i]}}</td>
         </tr>
       </ng-template>
     </p-table>

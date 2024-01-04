@@ -1,4 +1,4 @@
 export interface Points {
-  id: number,
-  score: string
+  id?: number,
+  score: number
 }

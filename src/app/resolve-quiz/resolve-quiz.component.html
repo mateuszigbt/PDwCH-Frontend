@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="quiz-box">
+    <div class="quiz-image">
+      <p-image
+        [src]="imageUrl[currentIndex]"
+        alt="Image"
+        width="550"
+      ></p-image>
+    </div>
+    <div class="quiz-question">
+      <p class="text">{{questionsArray[currentIndex]}}</p>
+    </div>
+    <div class="quiz-answer">
+      <div class="text-answers" *ngFor="let item of answersArray; let i = index">
+        <p class="text">
+          {{words[i] + item}}
+        </p>
+      </div>
+    </div>
+    <div class="end-group">
+      <div class="quiz-radio">
+        <div class="flex flex-column gap-3">
+          <div *ngFor="let item of numberRadioArray; let i = index" class="field-checkbox">
+            <p-radioButton
+              name="correctAnswer"
+              [value]="item"
+              [(ngModel)]="selectedCorrectAnswer"
+            ></p-radioButton>
+            <label class="ml-2">{{words_2[i]}}</label>
+          </div>
+        </div>
+      </div>
+      <p-toast></p-toast>
+      <p-button (click)="nextQuestions()" class="next-button" label="Next"></p-button>
+    </div>
+  </div>
+</div>

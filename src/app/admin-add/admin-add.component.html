@@ -1,159 +1,181 @@
 <div class="container">
-  <!--<div *ngIf="buttonsIsOn" class="buttons">
-    <p-button label="Category" severity="help"></p-button>
+  <div *ngIf="buttonsIsOn" class="buttons">
+    <p-button class="buttonCategory" (click)="toggleCategory()" label="Category" severity="help"></p-button>
     <p-button
-      (click)="toggleCategory()"
+      class="buttonQuiz"
+      (click)="toggleQuiz()"
       label="Quiz"
       severity="danger"
     ></p-button>
-  </div>-->
-  <div *ngIf="quizIsOn" class="quiz-up">
-    <div class="left-site">
-      <p-listbox
-        [options]="cities"
-        [(ngModel)]="selectedCity"
-        optionLabel="name"
-        [filter]="true"
-        [style]="{ width: '15rem' }"
-        [listStyle]="{ 'max-height': '50vh' }"
-      ></p-listbox>
-    </div>
-    <div class="mid-site">
-      <p-galleria
-        [value]="images"
-        [responsiveOptions]="responsiveOptions"
-        [containerStyle]="{ 'max-width': '440px' }"
-        [numVisible]="5"
-      >
-        <ng-template pTemplate="item" let-item>
-          <img [src]="item.itemImageSrc" style="width: 100%" />
-        </ng-template>
-        <ng-template pTemplate="thumbnail" let-item>
-          <div class="grid grid-nogutter justify-content-center">
-            <img [src]="item.thumbnailImageSrc" />
-          </div>
-        </ng-template>
-      </p-galleria>
-      <div class="space"></div>
-      <p-fileUpload
-        mode="basic"
-        chooseLabel="&nbsp;Choose"
-        name="demo[]"
-        url="https://www.primefaces.org/cdn/api/upload.php"
-        accept="image/*"
-        [maxFileSize]="1000000"
-      ></p-fileUpload>
-      <div class="space"></div>
-    </div>
-    <div class="right-site">
-      <span class="p-float-label">
-        <textarea id="float-input" rows="5" cols="30" pInputTextarea></textarea>
-        <label for="float-input">Descryption</label>
-      </span>
-      <input
-        id="input-title"
-        placeholder="Title"
-        type="text"
-        pInputText
-        [(ngModel)]="value"
-      />
-    </div>
   </div>
-  <div class="text-info">
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, dicta
-      nobis. Deleniti soluta repellat illo nihil. Laboriosam corporis sunt est
-      ea aliquid nulla nesciunt nostrum veniam fugiat, mollitia tempore?
-      Voluptas? Deleniti soluta repellat illo nihil. Laboriosam corporis sunt
-      est ea aliquid nulla nesciunt nostrum veniam fugiat, mollitia tempore?
-      Voluptas?
-    </p>
+  <form *ngIf="categoryIsOn" (ngSubmit)="addCategory()">
+  <div class="box-category">
+    <p>Add New category:</p>
+    <input name="category" type="text" pInputText [(ngModel)]="categoryInput.nameCategory" />
+    <p-button type="submit" label="Ready"></p-button>
   </div>
-  <div class="quiz-down">
-    <div class="list">
-      <div class="item">
-        <img src="../../assets/images/example-quiz.jpg" alt="" />
-        <div class="textarea-box">
-          <p>Question</p>
-          <textarea
-            class="textarea"
-            rows="5"
-            cols="30"
-            pInputTextarea
-            [(ngModel)]="value"
-          ></textarea>
-        </div>
-        <div class="textarea-box">
-          <p>Answer no.: 1</p>
-          <textarea
-            class="textarea"
-            rows="5"
-            cols="30"
-            pInputTextarea
-            [(ngModel)]="value"
-          ></textarea>
-        </div>
-        <div class="textarea-box">
-          <p>Answer no.: 2</p>
-          <textarea
-            class="textarea"
-            rows="5"
-            cols="30"
-            pInputTextarea
-            [(ngModel)]="value"
-          ></textarea>
-        </div>
-        <div class="textarea-box">
-          <p>Answer no.: 3</p>
-          <textarea
-            class="textarea"
-            rows="5"
-            cols="30"
-            pInputTextarea
-            [(ngModel)]="value"
-          ></textarea>
-        </div>
-        <div class="textarea-box">
-          <p>Answer no.: 4</p>
-          <textarea
-            class="textarea"
-            rows="5"
-            cols="30"
-            pInputTextarea
-            [(ngModel)]="value"
-          ></textarea>
-        </div>
-        <div class="flex flex-column gap-3">
-          <p
-            style="
-              color: white;
-              font-size: white;
-              font-size: 24px;
-              margin-top: 20px;
-              font-family: 'Courier New', Courier, monospace;
-            "
-          >
-            Choose correct:
-          </p>
-          <div *ngFor="let city of cities" class="field-checkbox">
-            <p-radioButton
-              [inputId]="city.name"
-              name="cities"
-              [value]="city"
-              [(ngModel)]="selectedCity"
-            ></p-radioButton>
-            <label
-              style="color: white; margin-left: 10px"
-              [for]="city.name"
-              class="ml-2"
-              >{{ city.name }}</label
-            >
-          </div>
-        </div>
-        <hr style="width: 100%; margin-top: 20px;">
+</form>
+
+  <form *ngIf="quizIsOn" (ngSubmit)="addQuiz()">
+    <div class="quiz-up">
+      <div class="left-site">
+        <p-listbox
+          [options]="category"
+          [(ngModel)]="quiz.category"
+          optionLabel="nameCategory"
+          [filter]="true"
+          [style]="{ width: '15rem' }"
+          [listStyle]="{ 'max-height': '50vh' }"
+          name="category"
+        ></p-listbox>
       </div>
-      <div class="space"></div>
-      <p-button label="Ready" icon="pi pi-check"></p-button>
+      <div class="mid-site">
+        <p-galleria
+          [value]="prepareGalleriaImages()"
+          [containerStyle]="{ 'max-width': '640px' }"
+          [numVisible]="5"
+        >
+          <ng-template pTemplate="item" let-item>
+            <img [src]="item.source" class="custom-image" />
+          </ng-template>
+          <ng-template pTemplate="thumbnail" let-item>
+            <div class="grid grid-nogutter justify-content-center">
+              <img [src]="item.source" class="custom-thumbnail" />
+            </div>
+          </ng-template>
+        </p-galleria>
+        <div class="space"></div>
+        <div class="multiple-buttons">
+          <p-fileUpload
+            mode="basic"
+            chooseLabel="&nbsp;Choose"
+            name="images"
+            (onSelect)="onFileSelected($event)"
+            accept="image/*"
+            [maxFileSize]="1000000"
+            [multiple]="true"
+          ></p-fileUpload>
+          <p-button
+            type="submit"
+            class="restart-button"
+            label="Restart"
+            severity="warning"
+          ></p-button>
+        </div>
+        <div class="space"></div>
+      </div>
+      <div class="right-site">
+        <span class="p-float-label">
+          <textarea
+            [(ngModel)]="quiz.description"
+            id="float-input"
+            rows="5"
+            cols="30"
+            pInputTextarea
+            name="description"
+          ></textarea>
+          <label for="float-input">Descryption</label>
+        </span>
+        <input
+          id="input-title"
+          placeholder="Title"
+          type="text"
+          pInputText
+          [(ngModel)]="quiz.title"
+          name="title"
+        />
+      </div>
     </div>
-  </div>
+    <div class="text-info">
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente,
+        dicta nobis. Deleniti soluta repellat illo nihil. Laboriosam corporis
+        sunt est ea aliquid nulla nesciunt nostrum veniam fugiat, mollitia
+        tempore? Voluptas? Deleniti soluta repellat illo nihil. Laboriosam
+        corporis sunt est ea aliquid nulla nesciunt nostrum veniam fugiat,
+        mollitia tempore? Voluptas?
+      </p>
+    </div>
+    <div class="quiz-down" *ngIf="uploadedImages.length > 0">
+      <div class="list">
+        <div class="item" *ngFor="let item of uploadedImages; let i = index">
+          <img [src]="item" alt="" />
+          <div class="textarea-box">
+            <p>Question</p>
+            <textarea
+              class="textarea"
+              rows="5"
+              cols="30"
+              pInputTextarea
+              [(ngModel)]="quiz.questions[i].questionText"
+              name="questions"
+            ></textarea>
+          </div>
+          <div
+            *ngFor="
+              let j of getRange(quiz.answers.length / uploadedImages.length);
+              let k = index
+            "
+            class="textarea-box"
+          >
+            <p>Answer no.: {{ j + 1 }}</p>
+            <textarea
+              class="textarea"
+              rows="5"
+              cols="30"
+              pInputTextarea
+              [(ngModel)]="
+                quiz.answers[
+                  i * (quiz.answers.length / uploadedImages.length) + j
+                ].answerText
+              "
+              name="answers"
+            ></textarea>
+          </div>
+          <div class="flex flex-column gap-3">
+            <p
+              style="
+                color: white;
+                font-size: white;
+                font-size: 24px;
+                margin-top: 20px;
+                font-family: 'Courier New', Courier, monospace;
+              "
+            >
+              Choose correct:
+            </p>
+            <div
+              *ngFor="
+                let j of getRange(
+                  quiz.correctAnswers.length / uploadedImages.length
+                );
+                let k = index
+              "
+              class="field-checkbox"
+            >
+            <p-radioButton
+            (click)="selectRadio(i, j)"
+            [value]="true"
+            [(ngModel)]="quiz.correctAnswers[i * (quiz.correctAnswers.length / uploadedImages.length) + j].correctAnswer"
+            [name]="'correctAnswer' + i + '-' + j"
+          ></p-radioButton>
+              <label style="color: white; margin-left: 10px" class="ml-2">
+                Answer no.: {{ j + 1 }}
+              </label>
+            </div>
+          </div>
+          <hr style="width: 100%; margin-top: 20px" />
+        </div>
+        <p class="rating-title">Choose level:</p>
+        <div class="rating">
+          <p-rating name="rating" [(ngModel)]="quiz.rating" [cancel]="false"></p-rating>
+        </div>
+        <hr style="width: 100%; margin-top: 20px" />
+        <div class="space"></div>
+        <p-button type="submit" label="Ready" icon="pi pi-check"></p-button>
+      </div>
+    </div>
+  </form>
+  <p-toast></p-toast>
 </div>
+

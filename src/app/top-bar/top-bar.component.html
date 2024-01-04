@@ -7,7 +7,8 @@
     <a class="space"></a>
     <a class="right-top" *ngIf="!isSignIn" (click)="sendNameOfComponent('login')">Sign in</a>
     <a class="right-top" *ngIf="!isSignIn" (click)="sendNameOfComponent('register')">Register</a>
-    <a class="right-top" *ngIf="isSignIn" (click)="sendNameOfComponent('profile')">Profile</a>
+    <a class="right-top" *ngIf="isSignIn && !isAdmin" (click)="sendNameOfComponent('profile')">Profile</a>
+    <a class="right-top" *ngIf="isSignIn && isAdmin" (click)="sendNameOfComponent('profile-admin')">Profile</a>
     <a class="right-top" *ngIf="isSignIn" (click)="sendNameOfComponent('main')" (click)="signOut()">Sign out</a>
   </div>
   <p-toast></p-toast>
