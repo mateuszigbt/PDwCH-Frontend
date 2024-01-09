@@ -23,6 +23,7 @@
       </p>
     </div>
   </div>
+  <p-toast></p-toast>
 </div>
 <div class="card flex justify-content-center">
   <p-paginator (click)="goToTop()"
@@ -30,6 +31,5 @@
     [first]="first"
     [rows]="rows"
     [totalRecords]="allRecords"
-    [rowsPerPageOptions]="[10]"
   ></p-paginator>
 </div>

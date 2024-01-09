@@ -24,6 +24,7 @@ export class ResolveQuizComponent implements OnInit {
   quiz!: Quiz;
   currentIndex: number = 0;
   currentIndex_2: number = 1;
+  currentIndex_3: number = 0;
   imageUrl: SafeUrl[] = [];
   words: string[] = ['A.', 'B.', 'C.', 'D.'];
   words_2: string[] = ['|A|', '|B|', '|C|', '|D|'];
@@ -43,7 +44,6 @@ export class ResolveQuizComponent implements OnInit {
 
   ngOnInit(): void {
     this.choosenIdFromMain = this.dataService.getSharedIdChoosenQuiz();
-    this.choosenIdFromMain = 8;
     this.title = this.dataService.getSharedTitleQuiz();
     this.category = this.dataService.getSharedCategoryQuiz();
     this.rating = this.dataService.getSharedRatingQuiz();
@@ -53,12 +53,12 @@ export class ResolveQuizComponent implements OnInit {
         this.quiz = response;
         for (let i = 0; i < 4; i++) {
           this.answersArray[i] = this.quiz.answers[i].answerText;
-          this.correctAnswerArray[i] =
-            this.quiz.correctAnswers[i].correctAnswer;
+          this.correctAnswerArray[i] = this.quiz.correctAnswers[i].correctAnswer;
         }
         for (let i = 0; i < this.quiz.images.length; i++) {
           this.questionsArray[i] = this.quiz.questions[i].questionText;
         }
+
         this.repairImages();
       });
     this.idUser = this.dataService.getSharedIdUser();
@@ -76,7 +76,16 @@ export class ResolveQuizComponent implements OnInit {
   }
 
   nextQuestions(): void {
-    if (this.currentIndex_2 === this.quiz.images.length) {
+    this.currentIndex_3++;
+    if (this.currentIndex_3 === this.quiz.images.length) {
+      let indexFromRadio = this.selectedCorrectAnswer;
+      this.correctAnswerArray = [];
+      for (let i = this.quiz.correctAnswers.length -4; i < this.quiz.correctAnswers.length; i++) {
+        this.correctAnswerArray.push(this.quiz.correctAnswers[i].correctAnswer);
+      }
+      if (this.correctAnswerArray[indexFromRadio!] === true) {
+        this.countPoints++;
+      }
       const requestPayload = {
         userDto: {},
         quizProfile: [
@@ -95,15 +104,17 @@ export class ResolveQuizComponent implements OnInit {
       this.dataService.addPoints(requestPayload, this.idUser).subscribe(response => {
         this.dataService.setSharedData('main');
       });
+      return;
     }
     if (this.selectedCorrectAnswer != null && this.currentIndex < this.quiz.images.length) {
-      this.currentIndex++;
-      this.currentIndex_2++;
+      this.currentIndex++; //0
+      this.currentIndex_2++; //1
       this.answersArray = [];
       this.correctAnswerArray = [];
-      console.log(this.indexForLoop)
       for (let i = this.lastIndex; i < this.indexForLoop * 4; i++) {
         this.answersArray.push(this.quiz.answers[i].answerText);
+      }
+      for (let i = this.lastIndex -4; i < (this.indexForLoop -1) * 4; i++) {
         this.correctAnswerArray.push(this.quiz.correctAnswers[i].correctAnswer);
       }
       this.lastIndex = this.indexForLoop * 4;
@@ -120,5 +131,6 @@ export class ResolveQuizComponent implements OnInit {
         detail: 'Choose answer!',
       });
     }
+
   }
 }

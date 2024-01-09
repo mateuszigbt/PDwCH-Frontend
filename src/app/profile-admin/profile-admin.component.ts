@@ -25,11 +25,15 @@ export class ProfileAdminComponent implements OnInit {
     if (this.idUser != null) {
       this.dataService.getByIdUser(this.idUser).subscribe(response => {
         this.user = response;
-        this.user.quizProfile!.forEach(element => {
+
+        // Zainicjuj tablicę getPoints tutaj
+        this.getPoints = this.user.quizProfile!.map(element => {
           if (Array.isArray(element.points) && element.points.length > 0) {
-            this.getPoints.push(element.points[0].score);
+            return element.points[0].score;
           }
+          return 0;
         });
+
         this.userInfo = [response];
         this.user.quizProfile!.forEach(element => {
           const length = element.title?.length;

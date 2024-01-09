@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
         this.user.quizProfile!.forEach(element => {
           if (Array.isArray(element.points) && element.points.length > 0) {
             this.getPoints.push(element.points[0].score);
-          } 
+          }
         });
         this.userInfo = [response];
         this.user.quizProfile!.forEach(element => {
@@ -41,7 +41,10 @@ export class ProfileComponent implements OnInit {
       });
     }
   }
-  calculateTotalPoints(points: any[]): number {
-    return points.reduce((sum, point) => sum + point.score, 0);
+  calculateTotalPoints(points: any[], quizIndex: number): number {
+    if (points && points[quizIndex]) {
+      return points[quizIndex].score;
+    }
+    return 0;
   }
 }

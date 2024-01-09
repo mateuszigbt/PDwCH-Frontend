@@ -64,8 +64,13 @@
   align-items: center;
   justify-content: center;
 }
+
 .next-button {
   margin-left: 200px;
+}
+
+.quiz-answer {
+  width: 15%;
 }
 
 :host ::ng-deep {

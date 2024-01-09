@@ -5,20 +5,25 @@ import { PaginatorState } from 'primeng/paginator';
 import { Quiz } from '../domain/quiz';
 import { DataService } from '../data.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { Subscription } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-main-mid-window',
   templateUrl: './main-mid-window.component.html',
   styleUrls: ['./main-mid-window.component.scss'],
+  providers: [MessageService]
 })
 export class MainMidWindowComponent implements OnInit {
-  constructor(private dataService: DataService, private sanitizer: DomSanitizer) {}
+  constructor(private dataService: DataService, private sanitizer: DomSanitizer, private messageService: MessageService) {}
 
   allQuizzes: Quiz[] = [];
   quizzesPage: Quiz[] = [];
   first: number = 0; // Zaczynamy od pierwszej strony
   rows: number = 9; // Wyświetlamy 9 quizów na stronie
   allRecords!: number;
+  whatIdUser!: number;
+  private subscription!: Subscription;
 
   ngOnInit(): void {
     this.loadQuizzes();
@@ -48,6 +53,8 @@ export class MainMidWindowComponent implements OnInit {
   }
 
   choosenQuiz(item: Quiz) {
+    let idUser = this.dataService.getSharedIdUser();
+    if (idUser > 0) {
     let idQuiz = item.quizId;
     let title = item.title;
     let category = item.category.nameCategory;
@@ -57,6 +64,14 @@ export class MainMidWindowComponent implements OnInit {
     this.dataService.setSharedCategoryQuiz(category);
     this.dataService.setSharedRatingQuiz(rating);
     this.dataService.setSharedData('resolve-quiz');
+    } else {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Failed',
+        detail:
+          'First, log in!',
+      });
+    }
   }
 
   goToTop(): void {

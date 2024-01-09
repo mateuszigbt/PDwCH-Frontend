@@ -30,6 +30,7 @@ export class TopBarComponent implements OnInit{
   signOut(): void {
     this.isSignIn = false;
     this.dataService.setSignIn(this.isSignIn);
+    this.dataService.setSharedIdUser(null!);
     this.messageService.add({
       severity: 'warn',
       summary: 'Warning',
